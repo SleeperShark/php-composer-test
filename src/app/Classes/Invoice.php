@@ -10,6 +10,11 @@ class Invoice {
     }
 
     public function create():string{
-        return 'Create Invoice';
+        return '
+<form method="POST" action="/invoices/create">
+    <label>Amount</label>
+    <input type="text" name="amount"/>
+</form>
+        ';
     }
 }
