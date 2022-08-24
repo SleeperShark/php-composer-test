@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Classes;
 
 class Invoice {
-    public function index():string{
+    public static function index():string{
         return 'INVOICES';
     }
 
-    public function create():string{
+    public static function create():string{
         return 'Create Invoice';
     }
 }

@@ -9,7 +9,7 @@ use App\Exceptions\RouteNotFoundException;
 class Router{
     private array $routes;
 
-    public function register(string $route, callable $action):self {
+    public function register(string $route, callable|array $action):self {
         $this->routes[$route] = $action;
         return $this;
     }
