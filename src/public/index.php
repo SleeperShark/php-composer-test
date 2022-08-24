@@ -2,8 +2,6 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-session_start();
-
 $router = new App\Router();
 
 $router
@@ -17,4 +15,4 @@ echo $router->resolve(
     strtolower($_SERVER['REQUEST_METHOD'])
 );
 
-var_dump($_SESSION);
+var_dump($_COOKIE);
