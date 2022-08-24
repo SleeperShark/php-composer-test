@@ -17,4 +17,9 @@ class Invoice {
 </form>
         ';
     }
+
+    public function store(){
+        $amount = $_POST['amount'];
+        var_dump($amount);
+    }
 }
