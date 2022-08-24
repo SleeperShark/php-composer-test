@@ -3,22 +3,25 @@
 declare(strict_types=1);
 
 namespace App\PaymentGateway\Paddle;
-use App\Enums\Status;
 
 class Transaction{
-    private string $status;
+    private float $amount;
 
-    public function __construct(){
-        $this->setStatus(Status::PENDING);
+    public function __construct(float $amount) {
+        $this->amount = $amount;
     }
 
-    public function setStatus(string $status): self{
-        if(!isset(Status::ALL_STATUSES[$status])){
-            throw new \InvalidArgumentException('Invalid status');
-        }
-        
-        $this->status = $status;
-        return $this;
+    public function getAmount():float {
+        return $this->amount;
+    }
+
+    public function setAmount(float $amount): void {
+        $this->amount = $amount;
+    }
+
+    public function process(): void {
+        echo 'Process $'.$this->amount.' transaction...';
     }
 }
+
 

@@ -1,10 +1,19 @@
 <?php
-declare(strict_types = 1);
 
-use App\Enums\Status;
-use App\PaymentGateway\Paddle\Transaction;
+require_once __DIR__.'/../vendor/autoload.php';
 
-require __DIR__.'/../vendor/autoload.php';
+echo '<pre>';
+print_r($_SERVER);
+echo '</pre>';
 
-$transaction = new Transaction();
-$transaction->setStatus(Status::PAID);
+$router = new App\Router();
+
+$router->register('/', function(){
+    echo 'HOME';
+});
+
+$router->register('/invoices', function(){
+    echo 'INVOICES';
+});
+
+echo $router->resolve($_SERVER['REQUEST_URI']);
